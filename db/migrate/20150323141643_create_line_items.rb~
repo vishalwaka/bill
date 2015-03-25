@@ -1,0 +1,14 @@
+class CreateLineItems < ActiveRecord::Migration
+  def change
+    create_table :line_items do |t|
+      t.references :order, index: true
+      t.string :ItemName
+      t.integer :Quantity
+      t.integer :Price
+      t.integer :Amount
+
+      t.timestamps null: false
+    end
+    add_foreign_key :line_items, :order_id
+  end
+end

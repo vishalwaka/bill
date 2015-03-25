@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @user.mobile %>
+</p>
+<p>
+  <strong>Orders:</strong>
+  
+</p>
+<%if @orders.length == 0%>
+No orders
+<%else%>
+<% @orders.each do |order| %>
+  <p><%= order%></p>
+<% end %>
+<%end%>
+<%= link_to 'Show Orders', user_orders_path(@user) %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
